@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,16 +14,32 @@ public class Player : MonoBehaviour
     void Start()
     {
         Player_rb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+        Movement_Input();
+        Up_And_Down();
+    }
 
-        Player_rb.velocity = new Vector3(inputX*speed, 0, inputY*speed);
+    private void Up_And_Down()
+    {
+       
+       if(Input.GetKey(KeyCode.I))
+            Player_rb.velocity = Vector3.up*speed;
+        if (Input.GetKey(KeyCode.K))
+            Player_rb.velocity = Vector3.down*speed;
+       
         
+    }
+
+    private void Movement_Input()
+    {
+        float inputY = Input.GetAxis("Vertical");
+        float inputX = Input.GetAxis("Horizontal");
+
+        Player_rb.velocity = transform.forward * speed * inputY;
+        transform.Rotate(Vector3.up * inputX * Time.deltaTime * 90);
     }
 }

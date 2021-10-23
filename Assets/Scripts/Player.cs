@@ -42,4 +42,7 @@ public class Player : MonoBehaviour
         Player_rb.velocity = transform.forward * speed * inputY;
         transform.Rotate(Vector3.up * inputX * Time.deltaTime * 90);
     }
+
+    
+
 }

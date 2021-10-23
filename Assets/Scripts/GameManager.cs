@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Game_Over()
     {
+        game_over = true;
+        Time.timeScale = 0f;
         throw new NotImplementedException();
     }
 

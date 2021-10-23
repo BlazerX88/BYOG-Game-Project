@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level_Scene");
     }
 
     public void About()

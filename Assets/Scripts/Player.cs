@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
 
     private Rigidbody Player_rb;
 
-    private float speed=4;
+    private float speed=10;
+
+    public float lift_speed ;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +29,11 @@ public class Player : MonoBehaviour
     {
        
        if(Input.GetKey(KeyCode.I))
-            Player_rb.velocity = Vector3.up*speed;
+            Player_rb.AddForce(Vector3.up*lift_speed*Time.deltaTime,ForceMode.Impulse);
         if (Input.GetKey(KeyCode.K))
-            Player_rb.velocity = Vector3.down*speed;
-       
-        
+            Player_rb.AddForce(Vector3.down*lift_speed*Time.deltaTime, ForceMode.Impulse);
+
+
     }
 
     private void Movement_Input()

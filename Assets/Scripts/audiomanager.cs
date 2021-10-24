@@ -26,15 +26,12 @@ public class audiomanager : MonoBehaviour
            s.source.loop = s.loop;
         }
     }
-    void Start()
-    {
-       
-    }
+  
     // Update is called once per frame
-   public void play(String name)
+   public void play(string name)
     {
        audiofile s=  Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+       s.source.Play();
     }
     public void stop(string name)
     {
